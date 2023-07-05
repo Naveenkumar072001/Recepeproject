@@ -3,7 +3,8 @@ import './App.css';
 import {useState} from "react"
 import Recipe from './receipe';
 import { Levelcontext } from './context';
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  
 function App(){
   const[search,setsearch]=useState("")
 
@@ -14,7 +15,7 @@ setsearch(e.target.value)
 
   return(
     
-    
+      
     <div className = "container">
     <div className = "meal-wrapper">
       <div className = "meal-search">
@@ -24,6 +25,7 @@ setsearch(e.target.value)
         </blockquote>
 <form>
         <div className = "meal-search-box">
+          
           <input type = "text" className = "search-control" onChange={updatesearch} placeholder="Enter an ingredient "id = "search-input"/>
           <button type = "submit" className = "search-btn btn" id = "search-btn">
             <i className = "fas fa-search"></i>
@@ -39,3 +41,6 @@ setsearch(e.target.value)
   )
 }
 export default App
+//<Levelcontext.Provider value={{setsearch}}>
+            //<Recipe/>
+          //</Levelcontext.Provider>
