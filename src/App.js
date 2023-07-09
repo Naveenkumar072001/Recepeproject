@@ -1,21 +1,30 @@
 import logo from './logo.svg';
-import './App.css';
+//import './App.css';
 import {useState} from "react"
 import Recipe from './receipe';
+import {FaSearch} from "react-icons/fa";
 import { Levelcontext } from './context';
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  
+import Modal from './modal';
+import './index.css';
+
 function App(){
   const[search,setsearch]=useState("")
+const[query,setQuery]=useState("egg")
+const[meal,setMeal]=useState([])
+const[show,setshow]=useState(true)
+
 
   const updatesearch= e =>{
 setsearch(e.target.value)
   }
   console.log(search)
 
+const getSearch = e => {
+    e.preventDefault();
+    setQuery(search);
+    setsearch("");}
+    console.log(query)
   return(
-    
-      
     <div className = "container">
     <div className = "meal-wrapper">
       <div className = "meal-search">
@@ -23,24 +32,24 @@ setsearch(e.target.value)
         <blockquote>Real food doesn't have ingredients, real food is ingredients.<br/>
           <cite>- Jamie Oliver</cite>
         </blockquote>
-<form>
+
         <div className = "meal-search-box">
-          
-          <input type = "text" className = "search-control" onChange={updatesearch} placeholder="Enter an ingredient "id = "search-input"/>
-          <button type = "submit" className = "search-btn btn" id = "search-btn">
-            <i className = "fas fa-search"></i>
+          <input type = "text" className = "search-control" placeholder="Enter an ingredient" id = "search-input" onChange={ updatesearch}/>
+          <button type = "submit" className = "search-btn btn" id = "search-btn" onClick={getSearch}>
+          <FaSearch className='icons'/>
           </button>
         </div>
-        </form>
-        
       </div>
-    </div>
-    </div>
-    
-    
+      </div>
+      <div>
+        <Levelcontext.Provider value={{setsearch,query,setQuery,search,meal,setMeal,show,setshow}}> 
+        { show? <Recipe/> :<Modal/>}                            
+        </Levelcontext.Provider>
+      </div>
+      </div>
+      
   )
 }
 export default App
-//<Levelcontext.Provider value={{setsearch}}>
-            //<Recipe/>
-          //</Levelcontext.Provider>
+
+
