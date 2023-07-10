@@ -10,7 +10,7 @@ import './index.css';
 function App(){
   const[search,setsearch]=useState("")
 const[query,setQuery]=useState("egg")
-const[meal,setMeal]=useState([])
+const[meal,setMeal]=useState({})
 const[show,setshow]=useState(true)
 
 
@@ -43,7 +43,7 @@ const getSearch = e => {
       </div>
       <div>
         <Levelcontext.Provider value={{setsearch,query,setQuery,search,meal,setMeal,show,setshow}}> 
-        { show? <Recipe/> :<Modal/>}                            
+        { show? <Recipe/> :<Modal/>   }                            
         </Levelcontext.Provider>
       </div>
       </div>

@@ -4,7 +4,7 @@ import './index.css'
 //import"./App.css"
 import Modal from "./modal"
 function Recipe(){
-    const{setsearch,setQuery,query,meal,setMeal,show ,setshow}=useContext(Levelcontext)
+    const{setsearch,setQuery,query,mealdata,setMealdata,show ,setshow}=useContext(Levelcontext)
 const[receipe,setreceipe]=useState([])
 
 useEffect(()=>{
@@ -14,10 +14,9 @@ useEffect(()=>{
         const receipe=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`)
         const data=await receipe.json()
         setreceipe(data.meals) 
-        setMeal(meal)
+        
         //console.log(data.meals)
     }
-    
     return(
         <div className = "container">
     <div className = "meal-wrapper">
@@ -31,9 +30,9 @@ useEffect(()=>{
                         <div className = "meal-img">
                             <img src = {meal.strMealThumb} alt = "food"/>
                         </div>
-                        <div className = "meal-name">
+                        <div className = "meal-name"> 
                             <h3>{meal.strMeal}</h3>
-                            <a href = "#" class = "recipe-btn" onClick={()=>setshow(!show) }>Get Recipe</a>
+                            <a href = "#" class = "recipe-btn" onClick={()=>setshow(!show) && setMealdata(meal) }>Get Recipe</a>
                             
                         </div>
                     </div>)
@@ -47,4 +46,3 @@ useEffect(()=>{
     )
 }
 export default Recipe;
-//data-id 

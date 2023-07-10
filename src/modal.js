@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect } from "react" 
 import { Levelcontext } from "./context"
 import Recipe from "./receipe"
 
@@ -8,8 +8,8 @@ console.log(meal)
 
    useEffect(()=>{
      getmodal()
-   },[meal])
-   
+   },[])
+
    const getmodal=async()=>{
     const res=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`)
     const data=await res.json()
