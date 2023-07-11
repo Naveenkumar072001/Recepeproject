@@ -141,7 +141,7 @@ body{
     background: var(--tenne-tawny-dark);
 }
 .meal-result{
-    margin-top: 4rem;
+    margin-top: -10px;
 }
 #meal{
     margin: 2.4rem 0;
@@ -211,8 +211,9 @@ body{
     width: 90%;
     height: 90%;
     overflow-y: scroll;
-    display: none;
+    display:block;
     padding: 2rem 0;
+    
 }
 .meal-details::-webkit-scrollbar{
     width: 10px;
@@ -351,6 +352,7 @@ body{
     }
     .meal-details{
         width: 700px;
+        display: block;
     }
 }
 

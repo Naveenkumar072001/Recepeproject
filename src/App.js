@@ -11,7 +11,7 @@ function App(){
   const[search,setsearch]=useState("")
 const[query,setQuery]=useState("egg")
 const[meal,setMeal]=useState({})
-const[show,setshow]=useState(true)
+const[show,setshow]=useState(false)
 
 
   const updatesearch= e =>{
@@ -43,8 +43,9 @@ const getSearch = e => {
       </div>
       <div>
         <Levelcontext.Provider value={{setsearch,query,setQuery,search,meal,setMeal,show,setshow}}> 
-        { show? <Recipe/> :<Modal/>   }                            
-        </Levelcontext.Provider>
+        <Recipe/>
+        { show && <Modal/>}                            
+        </Levelcontext.Provider> 
       </div>
       </div>
       

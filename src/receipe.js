@@ -15,7 +15,7 @@ useEffect(()=>{
         const data=await receipe.json()
         setreceipe(data.meals) 
         setMeal(data.meals)
-        //console.log(data.meals)
+        console.log(data.meals)
     }
     return(
         <div className = "container">
@@ -32,7 +32,8 @@ useEffect(()=>{
                         </div>
                         <div className = "meal-name"> 
                             <h3>{meal.strMeal}</h3>
-                            <a href = "#" class = "recipe-btn" onClick={()=>setshow(!show)&& setMeal(meal)  }>Get Recipe</a>
+                            <a href = "#" class = "recipe-btn" onClick={()=>{ setMeal(meal) 
+                                 setshow(!show)}}>Get Recipe</a>
                             
                         </div>
                     </div>)
